@@ -1,6 +1,7 @@
 import type { ClientContext } from './types'
 import { accountSignInFeature } from './register/account'
 import { registerAppearance } from './register/appearance'
+import { externalLinkFeature } from './register/external-link'
 import { keyRepeatFeature } from './register/key-repeat'
 import { navigationFeature } from './register/navigation'
 import { shortcutsFeature } from './register/shortcuts'
@@ -20,6 +21,7 @@ const ACCOUNT_SIGN_IN_EFFECT = 'dsh-tauri: account sign-in (auto-open the author
 const APPEARANCE_EFFECT = 'dsh-tauri: appearance'
 const SHORTCUTS_EFFECT = 'dsh-tauri: shortcuts (catalog report + edit commands)'
 const KEY_REPEAT_EFFECT = 'dsh-tauri: key repeat normalization (issue #1172)'
+const EXTERNAL_LINK_EFFECT = 'dsh-tauri: external links (window.open → system browser)'
 
 export function apply(ctx: ClientContext): void {
   if (typeof window === 'undefined' || typeof document === 'undefined' || window.parent === window)
@@ -36,5 +38,6 @@ export function apply(ctx: ClientContext): void {
   ctx.effect(sidebarTweaksFeature, SIDEBAR_TWEAKS_EFFECT)
   ctx.effect(sidebarFullwindowFeature, SIDEBAR_FULLWINDOW_EFFECT)
   ctx.effect(accountSignInFeature, ACCOUNT_SIGN_IN_EFFECT)
+  ctx.effect(externalLinkFeature, EXTERNAL_LINK_EFFECT)
   ctx.effect(shortcutsFeature, SHORTCUTS_EFFECT)
 }

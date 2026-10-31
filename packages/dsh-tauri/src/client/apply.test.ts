@@ -14,6 +14,7 @@ const EXPECTED_LABELS = [
   'dsh-tauri: sidebar tweaks (hide collapse toggle, center brand)',
   'dsh-tauri: sidebar full window (open-in-new-window button + full-screen setup)',
   'dsh-tauri: account sign-in (auto-open the authorize url)',
+  'dsh-tauri: external links (window.open → system browser)',
   'dsh-tauri: shortcuts (catalog report + edit commands)',
 ]
 
